@@ -1,0 +1,6 @@
+# File for git to ignore
+.idea
+cookies.pkl
+venmoInfo.py
+*.pyc
+*.bat
