@@ -1,6 +1,7 @@
 # This will open a web browser, sign into venmo, and pay someone some money
 
 from selenium.webdriver import Chrome
+from selenium.webdriver.common.keys import Keys
 import cPickle as pickle
 import SendKeys
 import time
@@ -43,6 +44,11 @@ if os.path.isfile('cookies.pkl'):
     payment_box.click()
     datetime_now = datetime.datetime.now()
     SendKeys.SendKeys(venmoInfo.amount + venmoInfo.description, with_spaces=True)
+    # click the pay button
+    pay_button = browser.find_element_by_id("onebox_pay_toggle")
+    pay_button.click()
+    name_text_box = browser.find_element_by_class_name("paddingUnifier")
+    name_text_box.send_keys(venmoInfo.payee_name)
 
     # click the send button
     send_button = browser.find_element_by_id("onebox_send_button")
