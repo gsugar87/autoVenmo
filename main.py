@@ -64,4 +64,5 @@ else:
     # Save the cookies
     pickle.dump(browser.get_cookies(), open("cookies.pkl", "wb"))
 
+time.sleep(10)
 browser.close()
